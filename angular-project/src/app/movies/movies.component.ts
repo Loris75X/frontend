@@ -11,8 +11,7 @@ export class MoviesComponent implements OnInit {
     id: 1,
     name: 'Windstorm'
   };
-
-  constructor(private movieService:MovieService) { }
+  constructor() { }
 
   ngOnInit() {
   }
