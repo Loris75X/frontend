@@ -1,7 +1,8 @@
-<h2>{{movie.name | uppercase}} Details</h2>
-<div><span>id: </span>{{movie.id}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)]="movie.name" placeholder="name"/>
-  </label>
-</div>
+<h2>My Heroes</h2>
+<ul class="movies">
+  <li *ngFor="let movie of movies">
+    <a routerLink="/detail/{{movie.id}}">
+      <span class="badge">{{movie.id}}</span> {{movie.name}}
+    </a>
+  </li>
+</ul>
