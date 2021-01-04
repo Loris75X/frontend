@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { MoviesComponent } from './movies/movies.component';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FilmsComponent } from './films/films.component';
+import { FilmDetailComponent } from './film-detail/film-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'detail/:id', component: MovieDetailComponent },
-  { path: 'movies', component: MoviesComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'detail/:id', component: FilmDetailComponent },
+  { path: 'films', component: FilmsComponent }
 ];
 
 @NgModule({

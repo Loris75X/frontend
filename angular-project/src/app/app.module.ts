@@ -1,27 +1,30 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
-import { MoviesComponent } from './movies/movies.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FilmsComponent } from './films/films.component';
+import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { MessagesComponent } from './messages/messages.component';
-
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    FilmsComponent,
+    FilmDetailComponent,
+    MessagesComponent
+  ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  declarations: [
-    AppComponent,
-    MoviesComponent,
-    MovieDetailComponent,
-    MessagesComponent
-  ],
-  bootstrap: [ AppComponent ]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
