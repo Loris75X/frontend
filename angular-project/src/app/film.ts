@@ -1,9 +1,13 @@
 export class Film {
-  id: number;
-  name: string;
-  seen: boolean;
-  publicationDate: number;
-  description: string;
-  genre: string;
-  director: string;
+
+  constructor(
+    public id: number,
+    public name: string,
+    public seen: boolean,
+    public publicationDate: number,
+    public description: string,
+    public genre: string,
+    public director: string
+  ){ }
+  
 }

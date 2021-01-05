@@ -27,7 +27,7 @@ export class BookService {
 
   getBooks(): Observable<Book[]> {
     // TODO: send the message _after_ fetching the heroes
-    this.messageService.add('BookService: fetched films');
+    this.messageService.add('BookService: fetched books');
     return this.http.get<Book[]>(this.booksUrl)
       .pipe(
         catchError(this.handleError<Book[]>('getBooks', []))
@@ -36,24 +36,25 @@ export class BookService {
 
   /** GET book by id. Will 404 if id not found */
   getBook(id: number): Observable<Book> {
-    // TODO: send the message _after_ fetching the film
-    this.messageService.add(`FilmService: fetched film id=${id}`);
+    // TODO: send the message _after_ fetching the book
+    this.messageService.add(`BookService: fetched book id=${id}`);
     return this.http.get<Book>(this.booksUrl + '/' + id)
       .pipe(
-        catchError(this.handleError<Book>('getFilm', null))
+        catchError(this.handleError<Book>('getBook', null))
       );
   }
 
   /** POST: add a new book to the server */
   addBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(this.booksUrl, book, this.httpOptions).pipe(
-      tap((newBook: Book) => this.log(`added film w/ id=${newBook.id}`)),
-      catchError(this.handleError<Book>('addBook'))
-    );
+    return this.http.post<Book>(this.booksUrl, book, this.httpOptions)
+      .pipe(
+        tap((newBook: Book) => this.log(`added book w/ id=${newBook.id}`)),
+        catchError(this.handleError<Book>('addBook'))
+      );
   }
 
   /** DELETE: delete the book from the server */
-  deleteFilm(book: Book | number): Observable<Book> {
+  deleteBook(book: Book | number): Observable<Book> {
     const id = typeof book === 'number' ? book : book.id;
     const url = `${this.booksUrl}/${id}`;
 
@@ -64,9 +65,9 @@ export class BookService {
   }
 
   /** PUT: update the book on the server */
-  updateFilm(book: Book): Observable<any> {
-    return this.http.put(this.booksUrl, book, this.httpOptions).pipe(
-      tap(_ => this.log(`updated film id=${book.id}`)),
+  updateBook(book: Book): Observable<any> {
+    return this.http.put(this.booksUrl + '/' + book.id, book, this.httpOptions).pipe(
+      tap(_ => this.log(`updated book id=${book.id}`)),
       catchError(this.handleError<any>('updateBook'))
     );
   }

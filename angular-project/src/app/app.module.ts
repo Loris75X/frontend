@@ -9,6 +9,11 @@ import { FilmsComponent } from './films/films.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BooksComponent } from './books/books.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { FilmFormComponent } from './film-form/film-form.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { BookFormComponent } from './book-form/book-form.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +21,14 @@ import { AppRoutingModule } from './app-routing.module';
     DashboardComponent,
     FilmsComponent,
     FilmDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    BooksComponent,
+    BookDetailComponent,
+    FilmFormComponent,
+    BookFormComponent
   ],
   imports: [
+    FlashMessagesModule,
     HttpClientModule,
     BrowserModule,
     FormsModule,

@@ -1,10 +1,12 @@
 export class Book {
-  id: number;
-  name: string;
-  seen: boolean;
-  publicationDate: number;
-  description: string;
-  genre: string;
-  author: string;
-  editor: string;
+  constructor(
+    public id: number,
+    public name: string,
+    public seen: boolean,
+    public publicationDate: number,
+    public description: string,
+    public genre: string,
+    public author: string,
+    public editor: string
+  ) {}
 }
